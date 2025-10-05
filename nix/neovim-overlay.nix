@@ -49,6 +49,8 @@ let
     # ^ git integration plugins
 
     neo-tree-nvim
+    nvim-autopairs
+    toggleterm-nvim
 
     # telescope and extensions
     telescope-nvim # https://github.com/nvim-telescope/telescope.nvim/
