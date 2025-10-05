@@ -1,9 +1,12 @@
-{inputs}: final: prev:
-with final.pkgs.lib; let
+{ inputs }:
+final: prev:
+with final.pkgs.lib;
+let
   pkgs = final;
 
   # Use this to create a plugin from a flake input
-  mkNvimPlugin = src: pname:
+  mkNvimPlugin =
+    src: pname:
     pkgs.vimUtils.buildVimPlugin {
       inherit pname src;
       version = src.lastModifiedDate;
@@ -15,8 +18,8 @@ with final.pkgs.lib; let
 
   # This is the helper function that builds the Neovim derivation.
   mkNeovim = pkgs.callPackage ./mkNeovim.nix {
-      inherit (pkgs-locked) wrapNeovimUnstable neovimUtils;
-    };
+    inherit (pkgs-locked) wrapNeovimUnstable neovimUtils;
+  };
 
   # A plugin can either be a package or an attrset, such as
   # { plugin = <plugin>; # the package, e.g. pkgs.vimPlugins.nvim-cmp
@@ -80,10 +83,12 @@ with final.pkgs.lib; let
   extraPackages = with pkgs; [
     # language servers, etc.
     lua-language-server
-    nil # nix LSP
+    nixd # nix LSP
+    nixfmt-rfc-style
     ripgrep # for telescope
   ];
-in {
+in
+{
   # This is the neovim derivation
   # returned by the overlay
   nvim-pkg = mkNeovim {
