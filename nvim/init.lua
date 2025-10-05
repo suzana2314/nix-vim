@@ -2,11 +2,18 @@ vim.loader.enable()
 
 local cmd = vim.cmd
 local opt = vim.o
+local fn = vim.fn
 
 -- <leader> key. Defaults to `\`. Some people prefer space.
 -- The default leader is '\'. Some people prefer <space>. Uncomment this if you do, too.
--- vim.g.mapleader = ' '
--- vim.g.maplocalleader = ' '
+vim.g.mapleader = ';'
+vim.g.maplocalleader = ';'
+
+
+-- Enable true color support
+if fn.has('termguicolors') then
+  opt.termguicolors = true
+end
 
 -- See :h <option> to see what the options do
 
@@ -14,15 +21,12 @@ local opt = vim.o
 opt.path = vim.o.path .. '**'
 
 opt.number = true
-opt.relativenumber = true
-opt.cursorline = true
+opt.relativenumber = false
+opt.cursorline = false
 opt.lazyredraw = true
 opt.showmatch = true -- Highlight matching parentheses, etc
 opt.incsearch = true
 opt.hlsearch = true
-
-opt.spell = true
-opt.spelllang = 'en'
 
 opt.expandtab = true
 opt.tabstop = 2
@@ -35,6 +39,16 @@ opt.undofile = true
 opt.splitright = true
 opt.splitbelow = true
 opt.cmdheight = 0
+opt.autoindent = true
+opt.cindent = true
+opt.wrap = false
+opt.linebreak = true
+opt.signcolumn = "number"
+
+opt.scrolloff = 4
+opt.sidescrolloff = 15
+opt.sidescroll = 1
+
 
 opt.fillchars = [[eob: ,fold: ,foldopen:,foldsep: ,foldclose:]]
 opt.colorcolumn = '100'
@@ -46,34 +60,6 @@ local function prefix_diagnostic(prefix, diagnostic)
 end
 
 vim.diagnostic.config {
-  virtual_text = {
-    prefix = '',
-    format = function(diagnostic)
-      local severity = diagnostic.severity
-      if severity == vim.diagnostic.severity.ERROR then
-        return prefix_diagnostic('󰅚', diagnostic)
-      end
-      if severity == vim.diagnostic.severity.WARN then
-        return prefix_diagnostic('⚠', diagnostic)
-      end
-      if severity == vim.diagnostic.severity.INFO then
-        return prefix_diagnostic('ⓘ', diagnostic)
-      end
-      if severity == vim.diagnostic.severity.HINT then
-        return prefix_diagnostic('󰌶', diagnostic)
-      end
-      return prefix_diagnostic('■', diagnostic)
-    end,
-  },
-  signs = {
-    text = {
-      -- Requires Nerd fonts
-      [vim.diagnostic.severity.ERROR] = '󰅚',
-      [vim.diagnostic.severity.WARN] = '⚠',
-      [vim.diagnostic.severity.INFO] = 'ⓘ',
-      [vim.diagnostic.severity.HINT] = '󰌶',
-    },
-  },
   update_in_insert = false,
   underline = true,
   severity_sort = true,
