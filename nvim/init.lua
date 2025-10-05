@@ -4,10 +4,11 @@ local cmd = vim.cmd
 local opt = vim.o
 local fn = vim.fn
 
--- <leader> key. Defaults to `\`. Some people prefer space.
--- The default leader is '\'. Some people prefer <space>. Uncomment this if you do, too.
+-- leader
 vim.g.mapleader = ';'
 vim.g.maplocalleader = ';'
+
+-- Remove netrw (neo-tree is enabled)
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
 
@@ -17,48 +18,47 @@ if fn.has('termguicolors') then
   opt.termguicolors = true
 end
 
--- See :h <option> to see what the options do
 
--- Search down into subfolders
-opt.path = vim.o.path .. '**'
-
-opt.number = true
-opt.relativenumber = false
-opt.cursorline = false
-opt.lazyredraw = true
-opt.showmatch = true -- Highlight matching parentheses, etc
-opt.incsearch = true
-opt.hlsearch = true
-
-opt.expandtab = true
-opt.tabstop = 2
-opt.softtabstop = 2
-opt.shiftwidth = 2
+-- General
+opt.number = true             -- display line numbers
+opt.signcolumn = "number"
+opt.lazyredraw = true         -- redraw only when needed
+opt.showmatch = true          -- highlight matching parentheses, etc
+opt.wrap = false
+opt.linebreak = true          -- wrap lines at convenient places
+opt.hid = true                -- a buffer becomes hidden when abandoned
 opt.foldenable = true
 opt.history = 2000
 opt.nrformats = 'bin,hex' -- 'octal'
-opt.undofile = true
-opt.splitright = true
-opt.splitbelow = true
 opt.cmdheight = 1
-opt.autoindent = true
-opt.cindent = true
-opt.wrap = false
-opt.linebreak = true
-opt.signcolumn = "number"
 
-opt.scrolloff = 4
+-- Search
+opt.incsearch = true          -- searches incrementally as you type instead of after 'enter'
+opt.hlsearch = true
+opt.path = vim.o.path .. '**' -- Search down into subfolders
+
+-- Indentation
+opt.autoindent = true
+opt.cindent = true -- automatically indent braces
+opt.smartindent = true
+opt.tabstop = 2
+opt.softtabstop = 2
+opt.shiftwidth = 2
+opt.expandtab = true
+opt.smarttab = true
+
+-- Scrolling
+opt.scrolloff = 4 -- start scrolling when we are 4 lines away from margins
 opt.sidescrolloff = 15
 opt.sidescroll = 1
 
+-- Splits
+opt.splitright = true
+opt.splitbelow = true
 
 opt.fillchars = [[eob: ,fold: ,foldopen:,foldsep: ,foldclose:]]
 
 -- Configure Neovim diagnostic messages
-
-local function prefix_diagnostic(prefix, diagnostic)
-  return string.format(prefix .. ' %s', diagnostic.message)
-end
 
 vim.diagnostic.config {
   update_in_insert = false,
