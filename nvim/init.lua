@@ -8,6 +8,8 @@ local fn = vim.fn
 -- The default leader is '\'. Some people prefer <space>. Uncomment this if you do, too.
 vim.g.mapleader = ';'
 vim.g.maplocalleader = ';'
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
 
 
 -- Enable true color support
@@ -38,7 +40,7 @@ opt.nrformats = 'bin,hex' -- 'octal'
 opt.undofile = true
 opt.splitright = true
 opt.splitbelow = true
-opt.cmdheight = 0
+opt.cmdheight = 1
 opt.autoindent = true
 opt.cindent = true
 opt.wrap = false
