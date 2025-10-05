@@ -3,7 +3,7 @@ if vim.g.did_load_gruvbox_plugin then
 end
 vim.g.did_load_gruvbox_plugin = true
 
-require("gruvbox").setup({
+require('gruvbox').setup({
   terminal_colors = true,
   italic = {
     strings = false,
@@ -15,3 +15,4 @@ require("gruvbox").setup({
   strikethrough = false,
   contrast = "hard",
 })
+vim.cmd("colorscheme gruvbox")
