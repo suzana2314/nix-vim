@@ -59,9 +59,6 @@ opt.splitbelow = true
 
 opt.fillchars = [[eob: ,fold: ,foldopen:,foldsep: ,foldclose:]]
 
--- UI
-opt.winborder = 'rounded'
-
 -- Configure Neovim diagnostic messages
 
 vim.diagnostic.config {
