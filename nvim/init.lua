@@ -3,6 +3,7 @@ vim.loader.enable()
 local cmd = vim.cmd
 local opt = vim.o
 local fn = vim.fn
+local border = 'rounded'
 
 -- leader
 vim.g.mapleader = ';'
@@ -68,7 +69,7 @@ vim.diagnostic.config {
   float = {
     focusable = false,
     style = 'minimal',
-    border = 'rounded',
+    border = border,
     source = 'if_many',
     header = '',
     prefix = '',
