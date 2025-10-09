@@ -83,5 +83,4 @@ require('lualine').setup {
     section_separators = { left = '', right = '' },
     component_separators = { left = '', right = '' },
   },
-  extensions = { 'fugitive', 'fzf', 'toggleterm', 'quickfix' },
 }

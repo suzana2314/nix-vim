@@ -16,3 +16,4 @@ require('gruvbox').setup({
   contrast = "hard",
 })
 vim.cmd("colorscheme gruvbox")
+vim.api.nvim_set_hl(0, 'NormalFloat', { bg = 'none' }) -- to remove annoying background on floating windows

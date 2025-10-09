@@ -22,6 +22,10 @@ cmp.setup {
     completeopt = 'menu,menuone,noinsert',
     -- autocomplete = false,
   },
+  window = {
+    completion = cmp.config.window.bordered(),
+    documentation = cmp.config.window.bordered(),
+  },
   formatting = {
     format = lspkind.cmp_format {
       mode = 'symbol_text',
@@ -98,9 +102,6 @@ cmp.setup.cmdline({ '/', '?' }, {
     { name = 'nvim_lsp_document_symbol', keyword_length = 3 },
     { name = 'buffer' },
     { name = 'cmdline_history' },
-  },
-  view = {
-    entries = { name = 'wildmenu', separator = '|' },
   },
 })
 

@@ -108,3 +108,5 @@ keymap.set({ 'n', 'v' }, '<leader>y', '\"+y', { desc = 'copy to system clipboard
 
 -- toggle neotree
 keymap.set('n', '<leader>o', '<cmd>Neotree toggle<CR>', { desc = 'toggle neotree' })
+-- focus neotree
+keymap.set('n', '<leader>e', '<cmd>Neotree focus<CR>', {desc = 'focus neotree'})

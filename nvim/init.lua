@@ -20,13 +20,14 @@ end
 
 
 -- General
-opt.number = true             -- display line numbers
+opt.showmode = false  -- remove the current mode (already in the lualine)
+opt.number = true     -- display line numbers
 opt.signcolumn = "number"
-opt.lazyredraw = true         -- redraw only when needed
-opt.showmatch = true          -- highlight matching parentheses, etc
+opt.lazyredraw = true -- redraw only when needed
+opt.showmatch = true  -- highlight matching parentheses, etc
 opt.wrap = false
-opt.linebreak = true          -- wrap lines at convenient places
-opt.hid = true                -- a buffer becomes hidden when abandoned
+opt.linebreak = true  -- wrap lines at convenient places
+opt.hid = true        -- a buffer becomes hidden when abandoned
 opt.foldenable = true
 opt.history = 2000
 opt.nrformats = 'bin,hex' -- 'octal'
@@ -57,6 +58,9 @@ opt.splitright = true
 opt.splitbelow = true
 
 opt.fillchars = [[eob: ,fold: ,foldopen:,foldsep: ,foldclose:]]
+
+-- UI
+opt.winborder = 'rounded'
 
 -- Configure Neovim diagnostic messages
 
