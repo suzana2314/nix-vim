@@ -20,6 +20,10 @@ vim.lsp.start {
       formatting = {
         command = { "nixfmt" },
       },
+      options = {
+        nixos = '(builtins.getFlake (builtins.toString /home/suz/.nix/nix-config)).nixosConfigurations.master.options', -- can't think of a better way to get the path
+        home_manager = '(builtins.getFlake (builtins.toString /home/suz/.nix/nix-config)).nixosConfigurations.master.options.home-manager.users.type.getSubOptions []', -- using the home manager module
+      },
     },
   },
 }
