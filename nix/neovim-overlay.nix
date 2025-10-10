@@ -59,9 +59,6 @@ let
     nvim-treesitter-textobjects
     nvim-ts-context-commentstring
 
-    # language specific
-    render-markdown-nvim
-
     # dependencies
     sqlite-lua
     plenary-nvim
