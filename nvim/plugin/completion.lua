@@ -73,8 +73,8 @@ cmp.setup {
   },
   sources = cmp.config.sources {
     -- The insertion order influences the priority of the sources
-    { name = 'nvim_lsp',                keyword_length = 3 },
-    { name = 'nvim_lsp_signature_help', keyword_length = 3 },
+    { name = 'nvim_lsp',                keyword_length = 2 },
+    { name = 'nvim_lsp_signature_help', keyword_length = 2 },
     { name = 'buffer' },
     { name = 'path' },
   },
@@ -90,7 +90,7 @@ cmp.setup {
 cmp.setup.filetype('lua', {
   sources = cmp.config.sources {
     { name = 'nvim_lua' },
-    { name = 'nvim_lsp', keyword_length = 3 },
+    { name = 'nvim_lsp', keyword_length = 2 },
     { name = 'path' },
   },
 })
@@ -99,7 +99,7 @@ cmp.setup.filetype('lua', {
 cmp.setup.cmdline({ '/', '?' }, {
   mapping = cmp.mapping.preset.cmdline(),
   sources = {
-    { name = 'nvim_lsp_document_symbol', keyword_length = 3 },
+    { name = 'nvim_lsp_document_symbol', keyword_length = 2 },
     { name = 'buffer' },
     { name = 'cmdline_history' },
   },
